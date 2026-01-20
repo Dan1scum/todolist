@@ -25,7 +25,16 @@ def main():
 
         save_button = ft.IconButton(icon=ft.Icons.SAVE, on_click=save_task)
 
-        return ft.Row([task_field, edit_button, save_button])
+        def delete_task(_):
+            main_db.delete_task(task_id=task_id)
+            task_list.controls.remove(task_row)
+            task_list.update()
+
+        delete_button = ft.IconButton(icon=ft.icons.DELETE, icon_color=ft.colors.RED, on_click=delete_task)
+
+        task_row = ft.Row([task_field, edit_button, save_button, delete_button])
+        return task_row
+
 
     def add_task_db(_):
         if task_input.value:
