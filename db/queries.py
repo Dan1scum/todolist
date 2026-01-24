@@ -13,6 +13,10 @@ insert_task = 'INSERT INTO tasks (task) VALUES (?)'
 # Read - Get all tasks
 selected_task = 'SELECT id, task FROM tasks'
 
+select_task_completed = 'SELECT id, task, completed FROM tasks WHERE completed = 1'
+
+select_task_uncompleted = 'SELECT id, task, completed FROM tasks WHERE completed = 0'
+
 # Update - Update a task by id
 update_task = 'UPDATE tasks SET task = ? WHERE id = ?'
 
